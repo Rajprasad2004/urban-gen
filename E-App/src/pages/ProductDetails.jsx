@@ -30,11 +30,11 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="container mx-auto px-2 sm:px-4 py-4 bg-white md:bg-transparent">
-      <div className="flex flex-col md:flex-row gap-4 bg-white p-4 shadow-sm rounded-sm">
+    <div className="container mx-auto px-2 sm:px-4 py-4 bg-white lg:bg-transparent">
+      <div className="flex flex-col lg:flex-row gap-4 bg-white p-4 shadow-sm rounded-sm">
         
         {/* Mobile Title & Ratings */}
-        <div className="block md:hidden w-full border-b pb-2 mb-2">
+        <div className="block lg:hidden w-full border-b pb-2 mb-2">
           <h1 className="text-lg font-normal text-gray-900 leading-snug">{product.title}</h1>
           <div className="flex items-center gap-3 mt-2">
             <div className="bg-green-600 text-white text-xs px-1.5 py-0.5 rounded-sm flex items-center gap-1 font-medium flex-shrink-0">
@@ -45,23 +45,23 @@ const ProductDetails = () => {
         </div>
 
         {/* Left: Image Gallery */}
-        <div className="w-full md:w-2/5 flex flex-col gap-4 md:sticky md:top-20 h-max">
-          <div className="flex gap-2 h-64 sm:h-80 md:h-96 relative border border-gray-200 p-4">
+        <div className="w-full lg:w-2/5 flex flex-col gap-4 lg:sticky lg:top-20 h-max">
+          <div className="flex gap-2 h-64 sm:h-80 lg:h-96 relative border border-gray-200 p-4">
             {/* Thumbnail column */}
             <div className="flex flex-col gap-2 w-16 overflow-y-auto scrollbar-hide">
               {images.map((img, idx) => (
                 <div 
                   key={idx} 
                   onClick={() => setActiveImage(idx)}
-                  className={`border-2 cursor-pointer p-1 ${activeImage === idx ? 'border-primary' : 'border-transparent hover:border-gray-300'}`}
+                  className={`border cursor-pointer p-1 aspect-square h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center ${activeImage === idx ? 'border-primary' : 'border-gray-200 hover:border-gray-400'}`}
                 >
-                  <img src={img} alt="thumbnail" className="w-full h-full object-contain" />
+                  <img src={img} alt="thumbnail" className="max-h-full max-w-full object-contain" />
                 </div>
               ))}
             </div>
             
             {/* Main Image */}
-            <div className="flex-1 flex items-center justify-center p-4">
+            <div className="flex-1 flex items-center justify-center p-4 min-w-0">
                <img src={images[activeImage]} alt={product.title} className="max-h-full max-w-full object-contain" />
             </div>
           </div>
@@ -84,8 +84,8 @@ const ProductDetails = () => {
         </div>
 
         {/* Right: Product Details */}
-        <div className="w-full md:w-3/5 flex flex-col gap-4">
-          <div className="hidden md:block">
+        <div className="w-full lg:w-3/5 flex flex-col gap-4">
+          <div className="hidden lg:block">
              <h1 className="text-xl md:text-2xl font-normal text-gray-900">{product.title}</h1>
              <div className="flex items-center gap-3 mt-2">
                 <div className="bg-green-600 text-white text-xs px-1.5 py-0.5 rounded-sm flex items-center gap-1 font-medium">

@@ -17,10 +17,10 @@ const CategoryBar = () => {
     <div className="bg-white shadow-sm border-b overflow-x-auto scrollbar-hide w-full">
       <div className="container mx-auto px-4 py-3 flex justify-between min-w-max md:justify-center md:gap-12 lg:gap-20">
         {categories.map((category, index) => (
-          <Link 
-            to="/products" 
+          <Link
+            to="/products"
             state={{ category: category.name === 'Top Offers' ? 'All' : category.name }}
-            key={index} 
+            key={index}
             className="flex flex-col items-center gap-1 group cursor-pointer px-4"
           >
             <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
