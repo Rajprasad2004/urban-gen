@@ -28,10 +28,6 @@ const Home = () => {
         <div className="flex items-center justify-between mb-4 border-b pb-4">
           <div className="flex items-center gap-4">
             <h2 className="text-xl font-bold text-gray-800">Deals of the Day</h2>
-            <div className="hidden sm:flex items-center gap-2 text-gray-500 text-sm">
-              <span>Time Left: </span>
-              <span className="bg-gray-100 p-1 rounded font-mono">12 : 34 : 56</span>
-            </div>
           </div>
           <Link to="/products" className="bg-primary text-white px-4 py-1.5 rounded-sm text-sm font-medium shadow hover:shadow-md">
             VIEW ALL
