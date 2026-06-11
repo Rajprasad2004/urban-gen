@@ -11,16 +11,18 @@ function App() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
-      <CategoryBar />
-      <main className="flex-grow pt-28">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </main>
+      <div className="pt-[116px] sm:pt-16 flex flex-col flex-grow">
+        <CategoryBar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }

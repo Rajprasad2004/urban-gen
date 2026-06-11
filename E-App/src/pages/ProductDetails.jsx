@@ -33,9 +33,20 @@ const ProductDetails = () => {
     <div className="container mx-auto px-2 sm:px-4 py-4 bg-white md:bg-transparent">
       <div className="flex flex-col md:flex-row gap-4 bg-white p-4 shadow-sm rounded-sm">
         
+        {/* Mobile Title & Ratings */}
+        <div className="block md:hidden w-full border-b pb-2 mb-2">
+          <h1 className="text-lg font-normal text-gray-900 leading-snug">{product.title}</h1>
+          <div className="flex items-center gap-3 mt-2">
+            <div className="bg-green-600 text-white text-xs px-1.5 py-0.5 rounded-sm flex items-center gap-1 font-medium flex-shrink-0">
+              {product.rating} <Star size={12} fill="currentColor" />
+            </div>
+            <span className="text-gray-500 font-medium text-xs sm:text-sm">{product.reviews.toLocaleString()} Ratings & Reviews</span>
+          </div>
+        </div>
+
         {/* Left: Image Gallery */}
-        <div className="w-full md:w-2/5 flex flex-col gap-4 sticky top-36 h-max">
-          <div className="flex gap-2 h-96 relative border border-gray-200 p-4">
+        <div className="w-full md:w-2/5 flex flex-col gap-4 md:sticky md:top-20 h-max">
+          <div className="flex gap-2 h-64 sm:h-80 md:h-96 relative border border-gray-200 p-4">
             {/* Thumbnail column */}
             <div className="flex flex-col gap-2 w-16 overflow-y-auto scrollbar-hide">
               {images.map((img, idx) => (
@@ -51,7 +62,7 @@ const ProductDetails = () => {
             
             {/* Main Image */}
             <div className="flex-1 flex items-center justify-center p-4">
-               <img src={images[activeImage]} alt={product.title} className="max-h-full object-contain" />
+               <img src={images[activeImage]} alt={product.title} className="max-h-full max-w-full object-contain" />
             </div>
           </div>
 
@@ -74,7 +85,7 @@ const ProductDetails = () => {
 
         {/* Right: Product Details */}
         <div className="w-full md:w-3/5 flex flex-col gap-4">
-          <div>
+          <div className="hidden md:block">
              <h1 className="text-xl md:text-2xl font-normal text-gray-900">{product.title}</h1>
              <div className="flex items-center gap-3 mt-2">
                 <div className="bg-green-600 text-white text-xs px-1.5 py-0.5 rounded-sm flex items-center gap-1 font-medium">

@@ -14,7 +14,7 @@ const categories = [
 
 const CategoryBar = () => {
   return (
-    <div className="bg-white mt-16 sm:mt-16 md:mt-16 pt-12 sm:pt-0 shadow-sm border-b overflow-x-auto scrollbar-hide absolute top-0 w-full z-40">
+    <div className="bg-white shadow-sm border-b overflow-x-auto scrollbar-hide w-full">
       <div className="container mx-auto px-4 py-3 flex justify-between min-w-max md:justify-center md:gap-12 lg:gap-20">
         {categories.map((category, index) => (
           <Link 

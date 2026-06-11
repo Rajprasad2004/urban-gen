@@ -17,7 +17,7 @@ const Home = () => {
       <div className="bg-white p-2 rounded-sm shadow-sm cursor-pointer hover:shadow-md transition-shadow">
         <div className="w-full h-48 md:h-72 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center rounded-sm">
           <div className="text-center text-white">
-            <h1 className="text-3xl md:text-5xl font-bold mb-2">Big Billion Days</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-2">Summer Sale Live</h1>
             <p className="text-lg md:text-xl">Up to 80% off on Electronics & Fashion</p>
           </div>
         </div>

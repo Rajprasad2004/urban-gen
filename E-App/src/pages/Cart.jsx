@@ -48,7 +48,7 @@ const Cart = () => {
       </div>
 
       {/* Right: Price Details */}
-      <div className="w-full lg:w-1/3 bg-white shadow-sm rounded-sm p-4 sticky top-36">
+      <div className="w-full lg:w-1/3 bg-white shadow-sm rounded-sm p-4 lg:sticky lg:top-20">
         <h2 className="text-gray-500 font-medium uppercase border-b pb-4 mb-4">Price Details</h2>
         
         <div className="flex flex-col gap-4 text-sm md:text-base">
