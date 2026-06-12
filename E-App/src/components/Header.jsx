@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, ShoppingCart, ChevronDown, User, MoreVertical, Bell, Headset, Plus, Package, Heart, Gift, CreditCard } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import LoginModal from './LoginModal';
@@ -7,6 +7,23 @@ import LoginModal from './LoginModal';
 const Header = () => {
   const { cartCount } = useCart();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const urlQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(urlQuery);
+
+  useEffect(() => {
+    setSearchQuery(urlQuery);
+  }, [urlQuery]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
+    } else {
+      navigate('/products');
+    }
+  };
 
   return (
     <header className="bg-primary text-white fixed top-0 w-full z-50 h-16 flex items-center shadow-md">
@@ -19,16 +36,18 @@ const Header = () => {
         </Link>
 
         {/* Search Bar - Hidden on small mobile, visible on sm and up */}
-        <div className="hidden sm:flex relative w-full max-w-xl mx-4">
+        <form onSubmit={handleSearch} className="hidden sm:flex relative w-full max-w-xl mx-4">
           <input
             type="text"
             placeholder="Search for products, brands and more"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full py-2 px-4 rounded-sm text-gray-800 focus:outline-none"
           />
-          <button className="absolute right-0 top-0 h-full px-3 text-primary">
+          <button type="submit" className="absolute right-0 top-0 h-full px-3 text-primary">
             <Search size={20} />
           </button>
-        </div>
+        </form>
 
         {/* Navigation Links */}
         <div className="flex items-center gap-6 xl:gap-8 flex-shrink-0">
@@ -123,16 +142,18 @@ const Header = () => {
 
       {/* Mobile Search Bar - Visible only on very small screens */}
       <div className="absolute top-16 left-0 w-full bg-primary p-2 sm:hidden flex justify-center">
-        <div className="relative w-full max-w-md">
+        <form onSubmit={handleSearch} className="relative w-full max-w-md">
           <input
             type="text"
             placeholder="Search for products, brands and more"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full py-2 px-4 rounded-sm text-gray-800 focus:outline-none text-sm"
           />
-          <button className="absolute right-0 top-0 h-full px-3 text-primary">
+          <button type="submit" className="absolute right-0 top-0 h-full px-3 text-primary">
             <Search size={18} />
           </button>
-        </div>
+        </form>
       </div>
 
       {/* Render Login Modal */}
